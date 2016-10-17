@@ -18,12 +18,8 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.css$/,
-                loader: "style-loader!css-loader"
-            },
-            {
-                test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader'
+                test : /\.(less|css)$/,
+                loader: ExtractTextPlugin.extract('style', 'css!less')
             }, // 用 ! 来连接多个 loader
             {
                 test: /\.(png|jpg)$/,
