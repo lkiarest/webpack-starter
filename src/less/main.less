@@ -1,7 +1,54 @@
-* {
-    padding: 0; margin: 0;
-}
+@import './reset.css';
+@import './common.less';
+
+@border-color: #ddd;
+@border: 1px solid @border-color;
+@bg-color: #eee;
+@left-width: 200px;
+@right-width: 200px;
+@top-height: 40px;
+@bottom-height: 40px;
+.padding-around() {
+    padding: 10px;
+};
 
 body {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+
+    & > header {
+        .padding-around();
+        line-height: @top-height;
+        background-color: @bg-color;
+        border-bottom: @border;
+    }
+    & > .content {
+        flex-grow: 1;
+        display: flex;
+
+        .toolbox {
+            .padding-around();
+            min-width: @left-width;
+            border-right: @border;
+        }
+
+        .canvas {
+            .padding-around();
+            flex-grow: 1;
+        }
+
+        .props {
+            .padding-around();
+            min-width: @right-width;
+            border-left: @border;
+        }
+    }
+
+    & > footer {
+        min-height: @bottom-height;
+        .padding-around();
+        border-top: @border;
+        background-color: @bg-color;
+    }
 }
